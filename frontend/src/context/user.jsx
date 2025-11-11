@@ -7,7 +7,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
-  const [loading, setLoading] = useState(true);
+
   const [btnlod, setBtnlod] = useState(false);
 
   // Called on app load to restore auth from cookie
@@ -18,11 +18,11 @@ export const UserProvider = ({ children }) => {
        
         setUser(data)
         setIsAuth(true)
-        setLoading(false)
+        
     } catch (error) {
         console.log(error);
         setIsAuth(false)
-        setLoading(false)
+       
         
         
     }
@@ -76,7 +76,7 @@ export const UserProvider = ({ children }) => {
   }
 }
 
-  if (loading) return <div>Loading...</div>;
+ 
 
   return (
     <UserContext.Provider value={{ user, isAuth, btnlod, registerUser, loginUser, logoutUser,getuser }}>
