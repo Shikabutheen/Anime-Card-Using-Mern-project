@@ -25,11 +25,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Allow frontend to send cookies
-app.use(
-  cors({
-    origin: "http://localhost:5173", // change if your frontend origin differs
-    credentials: true,
-  })
+app.use( cors()
+
 );
 
 // Route
